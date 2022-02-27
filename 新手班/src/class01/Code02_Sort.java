@@ -10,6 +10,7 @@ public class Code02_Sort {
         int[] arr = {2,35,4,11,5,9,22,10,6,3};
         int [] arr2 = {2,35,4,11,5,9,22,10,6,3};
         int [] arr3 = {2,35,4,11,5,9,22,10,6,3};
+        int [] arr4 = {2,35,4,11,5,9,22,10,6,3};
         printArr(arr);
 //        Arrays.sort(arr2);
 //        System.out.println(Arrays.toString(arr2));
@@ -22,6 +23,9 @@ public class Code02_Sort {
         System.out.println("==========插入排序=============");
         insertSort(arr3);
         printArr(arr3);
+        System.out.println("=========插入排序2==============");
+        insertSort2(arr4);
+        printArr(arr4);
     }
 
     public static void printArr (int[] arr){
@@ -108,6 +112,25 @@ public class Code02_Sort {
             while(newNumIndex -1 > 0 && arr[newNumIndex] < arr[newNumIndex-1]){
                 swap(arr,newNumIndex,newNumIndex-1);
                 newNumIndex--;
+            }
+        }
+    }
+
+    public static void insertSort2(int[] arr){
+        if(arr == null || arr.length < 2){
+            return;
+        }
+
+        int N = arr.length;
+        // 0~0 变成有序 完成
+        //0~1 变成有序
+        //0~2 变成有序
+        //0~3 变成有序
+        //0~n-1 变成有序
+
+        for (int end=1; end<N; end++){
+            for(int pre=end-1; pre>0 && arr[pre] > arr[pre + 1]; pre--){
+                swap(arr,pre,pre+1);
             }
         }
     }
